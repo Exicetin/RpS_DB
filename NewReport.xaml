@@ -16,19 +16,19 @@
                 </Menu>
                 <StackPanel DockPanel.Dock="Top" Margin="10 10 10 10">
                     <TextBlock Text="Новый отчёт" Margin="0 0 0 20" HorizontalAlignment="Left" FontSize="24"/>
-                    <DatePicker x:Name="Date" BorderBrush="#FF837D7D" Margin="0 0 0 10" Width="550"  HorizontalAlignment="Left"/>
+                    <DatePicker x:Name="Date" Text="{Binding Date}" BorderBrush="#FF837D7D" Margin="0 0 0 10" Width="550"  HorizontalAlignment="Left"/>
                     <TextBlock Text="Заголовок" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Title" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Title" Text="{Binding Title}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Описание"  Margin="0 0 0 10"/>
-                    <TextBox x:Name="Description" SpellCheck.IsEnabled="True" Language="ru" TextWrapping="Wrap" BorderBrush="#FF837D7D"  AcceptsReturn="True" Height="80" VerticalScrollBarVisibility="Auto" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Description" Text="{Binding Description}" SpellCheck.IsEnabled="True" Language="ru" TextWrapping="Wrap" BorderBrush="#FF837D7D"  AcceptsReturn="True" Height="80" VerticalScrollBarVisibility="Auto" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Разработчик" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Developer" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Developer" Text="{Binding Developer}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Факультет" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Faculty" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Faculty" Text="{Binding Faculty}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Группа" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Group" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Group" Text="{Binding Group}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Описание маршрута" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Route_Description" AcceptsReturn="True" Height="100" SpellCheck.IsEnabled="True" Language="ru" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="RouteDescription" Text="{Binding RouteDescription}" AcceptsReturn="True" Height="100" SpellCheck.IsEnabled="True" Language="ru" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Координаты цели:" Margin="0 0 0 10"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -42,20 +42,20 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Широта" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="0,5,0,20"/>
-                        <TextBox x:Name="Latitude" Grid.Column="1" Grid.Row="0" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
+                        <TextBox x:Name="Latitude" Text="{Binding Latitude}" Grid.Column="1" Grid.Row="0" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
                         <TextBlock Text="N" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0" Margin="20 5 0 10"/>
-                        <TextBox x:Name="North" Grid.Column="3" Grid.Row="0" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
+                        <TextBox x:Name="North" Text="{Binding North}" Grid.Column="3" Grid.Row="0" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
                         <TextBlock Text="Долгота" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1" Margin="0,5,0,20"/>
-                        <TextBox x:Name="longitude" Grid.Column="1" Grid.Row="1" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
+                        <TextBox x:Name="Longitude" Text="{Binding Longitude}" Grid.Column="1" Grid.Row="1" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
                         <TextBlock Text="E" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" Margin="20 5 0 10"/>
-                        <TextBox x:Name="East" Grid.Column="3" Grid.Row="1" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
+                        <TextBox x:Name="East" Text="{Binding East}" Grid.Column="3" Grid.Row="1" BorderBrush="#FF837D7D" Margin="0,0,0,10" CaretBrush="#FF0A5B9E"/>
                     </Grid>
                     <TextBlock Text="Цель задания" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Target" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Target" Text="{Binding Target}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Состав участников" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Compound" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Compound" Text="{Binding Compound}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Результат мероприятия" Margin="0 0 0 10"/>
-                    <TextBox x:Name="Result" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                    <TextBox x:Name="Result" AcceptsReturn="True" Text="{Binding True}" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -63,15 +63,19 @@
                             <ColumnDefinition/>
 
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" IsDefault="True" Content="Сохранить отчёт" Background="White" BorderBrush="#FF837D7D" Width="270" FontSize="20" HorizontalAlignment="Right">
-                        </Button>
-                        <Button IsCancel="True" Grid.Column="2" Content="Экспортировать отчёт" Background="White" BorderBrush="#FF837D7D" FontSize="20" Width="270" HorizontalAlignment="Right">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="5">OK</Button>
+                            <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
+                        </StackPanel>
+                        <!--<Button Grid.Column="0" IsDefault="True" Content="Сохранить отчёт" Background="White" BorderBrush="#FF837D7D" Width="270" FontSize="20" HorizontalAlignment="Right">
+                        </Button>-->
+                        <!--<Button IsCancel="True" Grid.Column="2" Content="Экспортировать отчёт" Background="White" BorderBrush="#FF837D7D" FontSize="20" Width="270" HorizontalAlignment="Right">
                             <Button.ToolTip>
                                 <ToolTip>
                                     Экспортируйте отчёт в формат word
                                 </ToolTip>
                             </Button.ToolTip>
-                        </Button>
+                        </Button>-->
                     </Grid>
 
                 </StackPanel>

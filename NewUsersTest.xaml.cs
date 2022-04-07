@@ -14,30 +14,20 @@ using System.Windows.Shapes;
 
 namespace RpS2._0
 {
-    /// <summary>
-    /// Логика взаимодействия для NewReport.xaml
-    /// </summary>
-    public partial class NewReport : Window
+    public partial class NewUsersTest : Window
     {
-        public Report Report { get; private set; }
+        public User User { get; private set; }
 
-        public NewReport(Report r)
+        public NewUsersTest(User p)
         {
             InitializeComponent();
-            Report = r;
-            this.DataContext = Report;
-        }
-
-        public NewReport()
-        {
+            User = p;
+            this.DataContext = User;
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            All_Report all_Report = new All_Report(); 
-            all_Report.Show();
-            this.Close();
+            this.DialogResult = true;
         }
     }
 }
-
