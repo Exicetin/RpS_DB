@@ -16,7 +16,7 @@
                 </Menu>
                 <StackPanel DockPanel.Dock="Top" Margin="10 10 10 10">
                     <TextBlock Text="Новый отчёт" Margin="0 0 0 20" HorizontalAlignment="Left" FontSize="24"/>
-                    <DatePicker x:Name="Date" Text="{Binding Date}" BorderBrush="#FF837D7D" Margin="0 0 0 10" Width="550"  HorizontalAlignment="Left"/>
+                    <TextBox x:Name="Date" Text="{Binding Date}" BorderBrush="#FF837D7D" Margin="0 0 0 10" Width="550"  HorizontalAlignment="Left"/>
                     <TextBlock Text="Заголовок" Margin="0 0 0 10"/>
                     <TextBox x:Name="Title" Text="{Binding Title}" AcceptsReturn="True" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
                     <TextBlock Text="Описание"  Margin="0 0 0 10"/>

@@ -12,7 +12,7 @@ namespace RpS2._0
     public class Report : INotifyPropertyChanged
     {
 
-        private string date;
+        private string dateRep;
         private string title;
         private string description;
         private string routeDescription;
@@ -25,17 +25,17 @@ namespace RpS2._0
         private string result;
         private string developer;
         private string faculty;
-        private string group;
+        private string groupDev;
 
         [Key]
         public int IdReport { get; set; }
 
-        public string Date
+        public string DateRep
         {
-            get { return date; }
+            get { return dateRep; }
             set
             {
-                date = value;
+                dateRep = value;
                 OnPropertyChanged("Date");
             }
         }
@@ -153,12 +153,12 @@ namespace RpS2._0
             }
         }
 
-        public string Group
+        public string GroupDev
         {
-            get { return group; }
+            get { return groupDev; }
             set
             {
-                group = value;
+                groupDev = value;
                 OnPropertyChanged("Group");
             }
         }

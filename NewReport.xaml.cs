@@ -24,6 +24,7 @@ namespace RpS2._0
         public NewReport(Report r)
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
             Report = r;
             this.DataContext = Report;
         }
@@ -34,9 +35,8 @@ namespace RpS2._0
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            All_Report all_Report = new All_Report(); 
-            all_Report.Show();
-            this.Close();
+            this.DialogResult = true;
+
         }
     }
 }

@@ -9,7 +9,7 @@
     <Grid MaxWidth="1700" MinWidth="1200">
         <ScrollViewer>
             <DockPanel MaxWidth="900" MinWidth="500">
-                <Menu DockPanel.Dock="Top" Margin="0 15 0 0" Background="White" FontSize="13">
+                <Menu DockPanel.Dock="Top" Margin="0 15 0 20" Background="White" FontSize="16">
                     <MenuItem x:Name="All_RP" Header="Список отчётов"/>
                     <MenuItem x:Name="Import_RP" Header="Импорт"/>
                     <MenuItem x:Name="FAQ" Header="Справка"/>
@@ -19,14 +19,29 @@
                         <RowDefinition />
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <ListBox x:Name="reportList" ItemsSource="{Binding}">
+
+                    <ListBox x:Name="reportList" ItemsSource="{Binding}" BorderBrush="LightGray">
                         <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Title}" FontSize="16" />
-                                    <TextBlock Text="{Binding Target}" FontSize="12" />
-                                    <TextBlock Text="{Binding Result}" FontSize="13" />
-                                </StackPanel>
+                            
+                                <DataTemplate >
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <StackPanel >
+                                        <TextBlock Text="{Binding Title}" FontSize="16" />
+                                        <TextBlock Text="{Binding DateRep}" FontSize="16" />
+                                        <TextBlock Text="{Binding Description}" FontSize="16" />
+                                        <TextBlock Text="{Binding RouteDescription}" FontSize="16" />
+                                        <!--<TextBlock Text="{Binding Latitude}" FontSize="12" />
+                                    <TextBlock Text="{Binding North}" FontSize="13" />
+                                    <TextBlock Text="{Binding Longitude}" FontSize="16" />
+                                    <TextBlock Text="{Binding East}" FontSize="12" />-->
+                                        <TextBlock Text="{Binding Target}" FontSize="16" />
+                                        <!--<TextBlock Text="{Binding Compound}" FontSize="16" />-->
+                                        <TextBlock Text="{Binding Result}" FontSize="16" />
+                                        <TextBlock Text="{Binding Developer}" FontSize="16" />
+                                        <!--<TextBlock Text="{Binding Faculty}" FontSize="16" />
+                                    <TextBlock Text="{Binding Group}" FontSize="12" />-->
+                                    </StackPanel>
+                                </ScrollViewer>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

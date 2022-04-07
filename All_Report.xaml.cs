@@ -21,7 +21,7 @@ namespace RpS2._0
         public All_Report()
         {
             InitializeComponent();
-
+            this.WindowState = WindowState.Maximized;
             db = new ApplicationContext();
             db.Reports.Load();
             this.DataContext = db.Reports.Local.ToBindingList();
@@ -48,8 +48,8 @@ namespace RpS2._0
             NewReport newReport = new NewReport(new Report
             {
                 IdReport = report.IdReport,
+                DateRep = report.DateRep,
                 Title = report.Title,
-                Date = report.Date,
                 Description = report.Description,
                 RouteDescription = report.RouteDescription,
                 Latitude = report.Latitude,
@@ -61,7 +61,7 @@ namespace RpS2._0
                 Result = report.Result,
                 Developer = report.Developer,
                 Faculty = report.Faculty,
-                Group = report.Group
+                GroupDev = report.GroupDev
             });
 
             if (newReport.ShowDialog() == true)
@@ -70,7 +70,8 @@ namespace RpS2._0
                 report = db.Reports.Find(newReport.Report.IdReport);
                 if (report != null)
                 {
-                    report.Date = newReport.Report.Date;
+
+                    report.DateRep = newReport.Report.DateRep;
                     report.Title = newReport.Report.Title;
                     report.Description = newReport.Report.Description;
                     report.RouteDescription = newReport.Report.RouteDescription;
@@ -83,7 +84,7 @@ namespace RpS2._0
                     report.Result = newReport.Report.Result;
                     report.Developer = newReport.Report.Developer;
                     report.Faculty = newReport.Report.Faculty;
-                    report.Group = newReport.Report.Group;
+                    report.GroupDev = newReport.Report.GroupDev;
 
                     db.Entry(report).State = EntityState.Modified;
                     db.SaveChanges();
@@ -96,8 +97,8 @@ namespace RpS2._0
             // если ни одного объекта не выделено, выходим
             if (reportList.SelectedItem == null) return;
             // получаем выделенный объект
-            User user = reportList.SelectedItem as User;
-            db.Users.Remove(user);
+            Report report = reportList.SelectedItem as Report;
+            db.Reports.Remove(report);
             db.SaveChanges();
         }
     }
