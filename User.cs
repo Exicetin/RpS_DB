@@ -10,6 +10,9 @@ namespace RpS2._0
         private string surname;
         private string name;
         private string midle_name;
+        private string login;
+        private string password;
+        private int recoveryCode;
 
         [Key]
         public int IdUser { get; set; }
@@ -23,6 +26,7 @@ namespace RpS2._0
                 OnPropertyChanged("Title");
             }
         }
+       
         public string Name
         {
             get { return name; }
@@ -39,6 +43,34 @@ namespace RpS2._0
             {
                 midle_name = value;
                 OnPropertyChanged("MidleName");
+            }
+        }
+
+        public string Login
+        {
+            get { return login; }
+            set 
+            { 
+                login = value; 
+                OnPropertyChanged("Login");
+            }
+        }
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value; 
+                OnPropertyChanged("Password");
+            }
+        }
+        public int RecoveryCode
+        {
+            get { return recoveryCode; }
+            set
+            {
+                recoveryCode = value; 
+                OnPropertyChanged("RecoveryCode");
             }
         }
 

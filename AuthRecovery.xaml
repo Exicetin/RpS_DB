@@ -1,0 +1,22 @@
+﻿<Window x:Class="RpS2._0.AuthRecovery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RpS2._0"
+        mc:Ignorable="d"
+        Title="Востановление доступа"  MinHeight="720" MinWidth="1280" MaxHeight="1080" MaxWidth="1920">
+    <Grid MaxWidth="1700" MinWidth="1200" VerticalAlignment="Center">
+        <DockPanel  LastChildFill="False" MaxWidth="900" MinWidth="500">
+
+            <TextBlock DockPanel.Dock="Top" Text="Востановление доступа" TextAlignment="Center" FontSize="22" Margin="0 20 0 0" />
+            <TextBlock DockPanel.Dock="Top" FontSize="15" TextAlignment="Center" x:Name="Recover" Text="Укажите код востановления, выданый вам при регистрации: " Margin="0 10 0 0"/>
+            <TextBlock DockPanel.Dock="Top" FontSize="20" Text="Код" Margin="0 10 0 0"/>
+            <TextBox AcceptsReturn="True" x:Name="RecCode" FontSize="20" DockPanel.Dock="Top" Margin="0 10 0 0"/>
+            
+            <Button Click="Recovery_Button" DockPanel.Dock="Top" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 20 0 0" Content="Далее"/>
+            <Button Click="Return_Button" DockPanel.Dock="Top" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 20 0 0" Content="Вернуться назад"/>
+            
+        </DockPanel>
+    </Grid>
+</Window>
