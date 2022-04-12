@@ -11,7 +11,7 @@ namespace RpS2._0
         private string name;
         private string midle_name;
         private string login;
-        private string password;
+        private string userPassword;
         private int recoveryCode;
 
         [Key]
@@ -55,12 +55,12 @@ namespace RpS2._0
                 OnPropertyChanged("Login");
             }
         }
-        public string Password
+        public string UserPassword
         {
-            get { return password; }
+            get { return userPassword; }
             set
             {
-                password = value; 
+                userPassword = value; 
                 OnPropertyChanged("Password");
             }
         }

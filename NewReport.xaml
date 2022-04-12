@@ -10,9 +10,7 @@
         <ScrollViewer>
             <DockPanel MaxWidth="900" MinWidth="500">
                 <Menu DockPanel.Dock="Top" Margin="0 15 0 0" Background="White" FontSize="13">
-                    <MenuItem x:Name="All_RP" Header="Список отчётов"/>
-                    <MenuItem x:Name="Import_RP" Header="Импорт"/>
-                    <MenuItem x:Name="FAQ" Header="Справка"/>
+                    <MenuItem x:Name="All_RP" Click="All_Reports" Header="Назад" DockPanel.Dock="Top" Margin="0 15 0 15" FontSize="16"/>
                 </Menu>
                 <StackPanel DockPanel.Dock="Top" Margin="10 10 10 10">
                     <TextBlock Text="Новый отчёт" Margin="0 0 0 20" HorizontalAlignment="Left" FontSize="24"/>
