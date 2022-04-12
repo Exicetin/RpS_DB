@@ -24,7 +24,7 @@ namespace RpS2._0
         public AllUsersTest()
         {
             InitializeComponent();
-
+            this.WindowState = WindowState.Maximized;
             db = new ApplicationContext();
             db.Users.Load();
             this.DataContext = db.Users.Local.ToBindingList();
@@ -53,8 +53,12 @@ namespace RpS2._0
                 IdUser = user.IdUser,
                 Surname = user.Surname,
                 Name = user.Name,
-                MidleName = user.MidleName
-            });
+                MidleName = user.MidleName,
+                Login = user.Login,
+                UserPassword = user.UserPassword,
+                RecoveryCode = user.RecoveryCode
+
+    });
 
             if (newUsersTest.ShowDialog() == true)
             {
@@ -65,6 +69,9 @@ namespace RpS2._0
                     user.Surname = newUsersTest.User.Surname;
                     user.Name = newUsersTest.User.Name;
                     user.MidleName = newUsersTest.User.MidleName;
+                    user.Login = newUsersTest.User.Login;
+                    user.UserPassword = newUsersTest.User.UserPassword;
+                    user.RecoveryCode = newUsersTest.User.RecoveryCode;
                     db.Entry(user).State = EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -79,6 +86,12 @@ namespace RpS2._0
             User user = userList.SelectedItem as User;
             db.Users.Remove(user);
             db.SaveChanges();
+        }
+        private void All_Report(object sender, RoutedEventArgs e)
+        {
+            All_Report all_Report = new All_Report();
+            all_Report.Show();
+            this.Close();
         }
     }
 }

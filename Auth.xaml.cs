@@ -19,6 +19,7 @@ namespace RpS2._0
         public Auth()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
         }
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +43,7 @@ namespace RpS2._0
                 User authUser = null;
                 using (ApplicationContext db = new ApplicationContext())
                 {
-                    authUser = db.Users.Where(b => b.Password == password && b.Login ==
+                    authUser = db.Users.Where(b => b.UserPassword == password && b.Login ==
                        login).FirstOrDefault();
                 }
                 if (authUser == null)

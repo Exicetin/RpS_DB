@@ -101,5 +101,11 @@ namespace RpS2._0
             db.Reports.Remove(report);
             db.SaveChanges();
         }
+        private void All_Users(object sender, RoutedEventArgs e) {
+            AllUsersTest allUsersTest = new AllUsersTest();
+            allUsersTest.Show();
+            this.Close();
+
+        }
     }
 }
