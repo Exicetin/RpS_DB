@@ -5,16 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RpS2._0"
         mc:Ignorable="d"
-        Title="AllUsersTest" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="50" />
-        </Grid.RowDefinitions>
-        <ListBox x:Name="userList" ItemsSource="{Binding}">
-            <ListBox.ItemTemplate>
+        Title="AllUsers"  MinHeight="720" MinWidth="1280" MaxHeight="1080" MaxWidth="1920">
+    <Grid MaxWidth="1700" MinWidth="1200">
+        <DockPanel MaxWidth="900" MinWidth="500">
+            <Menu DockPanel.Dock="Top" Margin="0 15 0 15" FontSize="16" HorizontalAlignment="Center">
+                <MenuItem x:Name="ImportRP" Header="Импорт"/>
+                <MenuItem x:Name="AllReport" Click="All_Report" Header="Отчёты"/>
+                <MenuItem x:Name="FAQ" Header="Справка"/>
+                <MenuItem x:Name="Exit" Click="Exit_Click" Header="Выйти"/>
+            </Menu>
+            <Grid Margin="-10 0 0 0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Menu DockPanel.Dock="Left" Margin="0,15,0,15" HorizontalContentAlignment="Center" FontSize="15"  HorizontalAlignment="Center" MinWidth="200">
+                    <MenuItem Header="Добавить" Click="Add_Click" MinWidth="150"/>
+                    <MenuItem Header="Изменить" Click="Edit_Click" MinWidth="150"/>
+                    <MenuItem Header="Удалить" Click="Delete_Click" MinWidth="150"/>
+                </Menu>
+                <ListBox x:Name="userList" ItemsSource="{Binding}" BorderBrush="LightGray"  Grid.Column="1" Grid.ColumnSpan="5" Margin="0,0,0,70" Grid.RowSpan="2">
+                    <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <StackPanel Margin="10 10 0 10">
                         <TextBlock Text="{Binding Surname}" FontSize="16" />
                         <TextBlock Text="{Binding Name}" FontSize="12" />
                         <TextBlock Text="{Binding MidleName}" FontSize="13" />
@@ -22,10 +43,21 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Добавить" Margin="10" Click="Add_Click" />
-            <Button Content="Изменить" Margin="10" Click="Edit_Click"  />
-            <Button Content="Удалить" Margin="10" Click="Delete_Click"  />
-        </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0 0 0 10">
+                    <!--<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="55"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="55"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Добавить" Grid.Column="0" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0"  Click="Add_Click" />
+                        <Button Content="Изменить" Grid.Column="2" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0" Click="Edit_Click"  />
+                        <Button Content="Удалить" Grid.Column="4" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0" Click="Delete_Click"  />
+                    </Grid>-->
+                </StackPanel>
+            </Grid>
+            </DockPanel>
     </Grid>
 </Window>

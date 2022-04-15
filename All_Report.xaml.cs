@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RpS2._0
 {
@@ -26,7 +14,7 @@ namespace RpS2._0
             db.Reports.Load();
             this.DataContext = db.Reports.Local.ToBindingList();
         }
-        // добавление
+        //Сохранение изменений в базу данных
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             NewReport newReport = new NewReport(new Report());
@@ -37,14 +25,17 @@ namespace RpS2._0
                 db.SaveChanges();
             }
         }
-        // редактирование
+        //Изменение данных в БД
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            // если ни одного объекта не выделено, выходим
-            if (reportList.SelectedItem == null) return;
-            // получаем выделенный объект
-            Report report = reportList.SelectedItem as Report;
+            //Получение выделеного объекта, если ни одного объекта не выделено - выходим
+            if (reportList.SelectedItem == null)
+            {
+                return;
+            }
 
+            Report report = reportList.SelectedItem as Report;
+            //Создание нового объекта
             NewReport newReport = new NewReport(new Report
             {
                 IdReport = report.IdReport,
@@ -66,7 +57,7 @@ namespace RpS2._0
 
             if (newReport.ShowDialog() == true)
             {
-                // получаем измененный объект
+                //Получение измененных данных из формы
                 report = db.Reports.Find(newReport.Report.IdReport);
                 if (report != null)
                 {
@@ -85,7 +76,7 @@ namespace RpS2._0
                     report.Developer = newReport.Report.Developer;
                     report.Faculty = newReport.Report.Faculty;
                     report.GroupDev = newReport.Report.GroupDev;
-
+                    //Сохранение изменений в базу данных
                     db.Entry(report).State = EntityState.Modified;
                     db.SaveChanges();
                 }
@@ -95,11 +86,21 @@ namespace RpS2._0
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             // если ни одного объекта не выделено, выходим
-            if (reportList.SelectedItem == null) return;
+            if (reportList.SelectedItem == null)
+            {
+                return;
+            }
             // получаем выделенный объект
             Report report = reportList.SelectedItem as Report;
             db.Reports.Remove(report);
             db.SaveChanges();
+        }
+        private void All_Users(object sender, RoutedEventArgs e)
+        {
+            AllUsersTest allUsersTest = new AllUsersTest();
+            allUsersTest.Show();
+            this.Close();
+
         }
     }
 }

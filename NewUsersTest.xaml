@@ -5,30 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RpS2._0"
         mc:Ignorable="d"
-        Title="NewUsersTest" Height="450" Width="800">
-    <Grid>
-        <StackPanel DockPanel.Dock="Top" Margin="10 10 10 10">
-            <TextBlock Text="Новый пользователь" Margin="0 0 0 20" HorizontalAlignment="Left" FontSize="24"/>
-            <TextBlock Text="Фамилия" Margin="0 0 0 10" FontSize="15"/>
-            <TextBox x:Name="Surname" Text="{Binding Surname}" AcceptsReturn="True" TextWrapping="Wrap" FontSize="15" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
-            <TextBlock Text="Имя"  Margin="0 0 0 10" FontSize="15"/>
-            <TextBox x:Name="Name" Text="{Binding Name}" AcceptsReturn="True" FontSize="15" TextWrapping="Wrap" BorderBrush="#FF837D7D"  Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
-            <TextBlock Text="Отчество, при наличии" Margin="0 0 0 10" FontSize="15"/>
-            <TextBox x:Name="MidleName" Text="{Binding MidleName}" AcceptsReturn="True" FontSize="15" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
-            
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+        Title="NewUser"  MinHeight="720" MinWidth="1280" MaxHeight="1080" MaxWidth="1920">
+    <Grid MaxWidth="1700" MinWidth="1200">
+        <ScrollViewer>
+            <DockPanel MaxWidth="900" MinWidth="500">
+                <Grid Margin="-10 0 0 0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="200"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Menu DockPanel.Dock="Left" Grid.Row="1" Margin="0,15,0,15" HorizontalContentAlignment="Center" FontSize="15"  HorizontalAlignment="Center" MinWidth="200">
+                        <MenuItem Header="Сохранить" Click="Accept_Click" MinWidth="150"/>
+                        <MenuItem x:Name="All_RP" Click="All_Reports" Header="Назад" MinWidth="150"/>
+                    </Menu>
+                    <StackPanel DockPanel.Dock="Top" Grid.Row="1" Margin="10 10 10 10" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                        <TextBlock Text="Новый пользователь" Margin="0 0 0 20" HorizontalAlignment="Left" FontSize="24"/>
+                        <TextBlock Text="Фамилия" Margin="0 0 0 10" FontSize="15"/>
+                        <TextBox x:Name="Surname" Text="{Binding Surname}" AcceptsReturn="True" TextWrapping="Wrap" FontSize="15" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                        <TextBlock Text="Имя"  Margin="0 0 0 10" FontSize="15"/>
+                        <TextBox x:Name="Name" Text="{Binding Name}" AcceptsReturn="True" FontSize="15" TextWrapping="Wrap" BorderBrush="#FF837D7D"  Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                        <TextBlock Text="Отчество, при наличии" Margin="0 0 0 10" FontSize="15"/>
+                        <TextBox x:Name="MidleName" Text="{Binding MidleName}" AcceptsReturn="True" FontSize="15" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                        <TextBlock Text="Генерация кода восстановления"  Margin="0 0 0 10" FontSize="15"/>
+                        <TextBox x:Name="recoveryCode" Text="{Binding recoveryCode}" AcceptsReturn="True" FontSize="15" TextWrapping="Wrap" BorderBrush="#FF837D7D"  Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                        <TextBlock Text="Логин" Margin="0 0 0 10" FontSize="15"/>
+                        <TextBox x:Name="Login" Text="{Binding Login}" AcceptsReturn="True" FontSize="15" TextWrapping="Wrap" BorderBrush="#FF837D7D" Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
+                        <TextBlock Text="Пароль"  Margin="0 0 0 10" FontSize="15"/>
+                        <PasswordBox x:Name="Password" FontSize="15" BorderBrush="#FF837D7D"  Margin="0 0 0 10" CaretBrush="#FF0A5B9E"/>
 
-                </Grid.ColumnDefinitions>
-                <!--<Button Grid.Column="2" IsDefault="True" Content="Добавить пользователя" Margin="0 20 0 0"  BorderBrush="#FF837D7D" Width="300" FontSize="20" HorizontalAlignment="Right"/>-->
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                    <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="5">OK</Button>
-                    <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
-                </StackPanel>
-            </Grid>
+                        <!--<Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
 
-        </StackPanel>
+                            </Grid.ColumnDefinitions>
+                            --><!--<Button Grid.Column="2" IsDefault="True" Content="Добавить пользователя" Margin="0 20 0 0"  BorderBrush="#FF837D7D" Width="300" FontSize="20" HorizontalAlignment="Right"/>--><!--
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                                <Button IsDefault="True" Click="Accept_Click" MinWidth="60" Margin="5">OK</Button>
+                                <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>
+                            </StackPanel>
+                        </Grid>-->
+
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

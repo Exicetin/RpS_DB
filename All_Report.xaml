@@ -7,59 +7,73 @@
         mc:Ignorable="d"
        Title="AllReport"  MinHeight="720" MinWidth="1280" MaxHeight="1080" MaxWidth="1920">
     <Grid MaxWidth="1700" MinWidth="1200">
-        <DockPanel MaxWidth="900" MinWidth="500">
-                <Menu DockPanel.Dock="Top" Margin="0 15 0 15" FontSize="16" HorizontalAlignment="Center">
-                    <MenuItem x:Name="Import_RP" Header="Импорт"/>
-                    <MenuItem x:Name="FAQ" Header="Справка"/>
+        <DockPanel MaxWidth="1000" MinWidth="600">
+            <Menu DockPanel.Dock="Top" Margin="0 15 0 15" FontSize="16" HorizontalAlignment="Center">
+                <MenuItem x:Name="ImportRP" Header="Импорт"/>
+                <MenuItem x:Name="AllUsersTest" Click="All_Users" Header="Пользователи"/>
+                <MenuItem x:Name="FAQ" Header="Справка"/>
+            </Menu>
+            <Grid Margin="-10 0 0 0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Menu DockPanel.Dock="Left" Margin="0,15,0,15" HorizontalContentAlignment="Center" FontSize="15"  HorizontalAlignment="Center" MinWidth="200">
+                    <MenuItem Header="Добавить" Click="Add_Click" MinWidth="150"/>
+                    <MenuItem Header="Изменить" Click="Edit_Click" MinWidth="150"/>
+                    <MenuItem Header="Удалить" Click="Delete_Click" MinWidth="150"/>
                 </Menu>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition Height="50" />
-                    </Grid.RowDefinitions>
+                <ListBox x:Name="reportList" ItemsSource="{Binding}" BorderBrush="LightGray" Grid.Column="1" Grid.ColumnSpan="5" Margin="0,0,0,70" Grid.RowSpan="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate >
 
-                    <ListBox x:Name="reportList" ItemsSource="{Binding}" BorderBrush="LightGray" Grid.ColumnSpan="2" Margin="0,0,0,70" Grid.RowSpan="2">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate >
-
-                                <StackPanel Margin="10 10 0 10">
-                                    <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="DemiBold"/>
-                                    <TextBlock Text="{Binding DateRep}" Margin="5 0 0 0 " FontSize="12" />
-                                    <TextBlock Text="{Binding Description}" FontSize="16" />
-                                    <TextBlock Text="{Binding RouteDescription}" FontSize="16" />
-                                    <!--<TextBlock Text="{Binding Latitude}" FontSize="12" />
+                            <StackPanel Margin="10 10 0 10">
+                                <TextBlock Text="{Binding Title}" FontSize="16" Padding="10 10 0 0" FontWeight="DemiBold" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding DateRep}"  Padding="10 10 0 0" FontSize="12" FontWeight="DemiBold"/>
+                                <!--<TextBlock Text="{Binding Description}" FontSize="16" Padding="10 10 0 0" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding RouteDescription}" FontSize="16" Padding="10 10 0 0" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding Latitude}" FontSize="12" />
                                     <TextBlock Text="{Binding North}" FontSize="13" />
                                     <TextBlock Text="{Binding Longitude}" FontSize="16" />
                                     <TextBlock Text="{Binding East}" FontSize="12" />-->
-                                    <TextBlock Text="{Binding Target}" FontSize="16" />
-                                    <!--<TextBlock Text="{Binding Compound}" FontSize="16" />-->
-                                    <TextBlock Text="{Binding Result}" FontSize="16" />
-                                    <TextBlock Text="{Binding Developer}" FontSize="16" />
-                                    <!--<TextBlock Text="{Binding Faculty}" FontSize="16" />
+                                <TextBlock Text="{Binding Target}" TextWrapping="Wrap" FontSize="16" Padding="10 10 0 0"/>
+                                <!--<TextBlock Text="{Binding Compound}" FontSize="16" />
+                                    <TextBlock Text="{Binding Result}" TextWrapping="Wrap" FontSize="16" Padding="10 10 0 0"/>-->
+                                <TextBlock Text="{Binding Developer}" FontWeight="DemiBold" FontSize="16" Padding="10 10 0 0"/>
+                                <!--<TextBlock Text="{Binding Faculty}" FontSize="16" />
                                     <TextBlock Text="{Binding Group}" FontSize="12" />-->
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0 0 0 10">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="55"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="55"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Button Content="Добавить" Grid.Column="0" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0"  Click="Add_Click" />
-                        <Button Content="Изменить" Grid.Column="2" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0" Click="Edit_Click"  />
-                        <Button Content="Удалить" Grid.Column="4" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0" Click="Delete_Click"  />
-                    </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel  Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="0 0 30 10">
+                    <!--<Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Button Content="Добавить" Grid.Row="0" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0"  Click="Add_Click" />
+                        <Button Content="Изменить" Grid.Row="1" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0" Click="Edit_Click"  />
+                        <Button Content="Удалить" Grid.Row="2" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 0 0 0" Click="Delete_Click"  />
+                    </Grid>-->
                 </StackPanel>
-                </Grid>
-            </DockPanel>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
