@@ -9,12 +9,11 @@
     <Grid MaxWidth="1700" MinWidth="1200" VerticalAlignment="Center">
         <DockPanel  LastChildFill="False" MaxWidth="900" MinWidth="500">
 
-            <TextBlock DockPanel.Dock="Top" Text="Востановление доступа" TextAlignment="Center" FontSize="22" Margin="0 20 0 0" />
-            <TextBlock DockPanel.Dock="Top" FontSize="15" TextAlignment="Center" x:Name="Recover" Text="Укажите код востановления, выданый вам при регистрации: " Margin="0 10 0 0"/>
-            <TextBlock DockPanel.Dock="Top" FontSize="20" Text="Код" Margin="0 10 0 0"/>
+            <TextBlock DockPanel.Dock="Top" Text="Авторизация" TextAlignment="Center" FontSize="22" Margin="0 20 0 0" />
+            <TextBlock DockPanel.Dock="Top" FontSize="15" TextAlignment="Center" x:Name="Recover" Text="Укажите код доступа, выданый вам при регистрации: " Margin="0 10 0 0"/>
             <TextBox AcceptsReturn="True" x:Name="RecCode" FontSize="20" DockPanel.Dock="Top" Margin="0 10 0 0"/>
             
-            <Button Click="Recovery_Button" DockPanel.Dock="Top" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 20 0 0" Content="Далее"/>
+            <Button Click="Recovery_Button" DockPanel.Dock="Top" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 20 0 0" Content="Войти"/>
             <Button Click="Return_Button" DockPanel.Dock="Top" Height="40" FontSize="20" MinWidth="200" MaxWidth="300" Margin="0 20 0 0" Content="Вернуться назад"/>
             
         </DockPanel>

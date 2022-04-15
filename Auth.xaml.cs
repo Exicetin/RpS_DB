@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RpS2._0
 {
@@ -19,18 +9,16 @@ namespace RpS2._0
         public Auth()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
         }
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
-            string login = Login.Text.Trim(); /*Получаем знаечние поля Login, удаляем
-лишние пробелы до и после и приводим к нижнему регистру*/
-            string password = Password.Password.Trim(); /*Получаем значение поля PassBox и
-удаляем лишние пробелы в начале и конце строки*/
-            
-            if (password.Length < 8)
+            string login = Login.Text.Trim(); /*Получаем знаечние поля Login, удаляем лишние пробелы до и после и приводим к нижнему регистру*/
+            string password = Password.Password.Trim(); /*Получаем значение поля PassBox и удаляем лишние пробелы в начале и конце строки*/
+
+            if (password != "Admin" || password.Length < 5)
             {
                 Mess.Text = "Проверьте правильность введенных данных";
-                //Password.ToolTip = "Данные введены не верно!";
                 Password.BorderBrush = Brushes.DarkRed;
             }
             else
@@ -42,7 +30,7 @@ namespace RpS2._0
                 User authUser = null;
                 using (ApplicationContext db = new ApplicationContext())
                 {
-                    authUser = db.Users.Where(b => b.Password == password && b.Login ==
+                    authUser = db.Users.Where(b => b.UserPassword == password && b.Login ==
                        login).FirstOrDefault();
                 }
                 if (authUser == null)
@@ -54,13 +42,23 @@ namespace RpS2._0
                 }
                 if (authUser != null)
                 {
-                    
-                    All_Report allReport = new All_Report();
-                    allReport.Show();
-                    this.Close();
+                    if (password == "Admin")
+                    {
+                        All_Report allReport = new All_Report();
+                        allReport.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        All_Report allReport = new All_Report();
+                        allReport.Show();
+                        this.Close();
+                    }
                 }
                 else
+                {
                     Mess.Text = "Неверно указаны данные!";
+                }
             }
         }
         private void Recovery_Button(object sender, RoutedEventArgs e)

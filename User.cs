@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 namespace RpS2._0
 {
-
     public class User : INotifyPropertyChanged
     {
 
@@ -11,22 +10,22 @@ namespace RpS2._0
         private string name;
         private string midle_name;
         private string login;
-        private string password;
+        private string userPassword;
         private int recoveryCode;
 
         [Key]
         public int IdUser { get; set; }
 
-        public string Surname 
-        { 
+        public string Surname
+        {
             get { return surname; }
-            set 
+            set
             {
                 surname = value;
                 OnPropertyChanged("Title");
             }
         }
-       
+
         public string Name
         {
             get { return name; }
@@ -49,18 +48,18 @@ namespace RpS2._0
         public string Login
         {
             get { return login; }
-            set 
-            { 
-                login = value; 
+            set
+            {
+                login = value;
                 OnPropertyChanged("Login");
             }
         }
-        public string Password
+        public string UserPassword
         {
-            get { return password; }
+            get { return userPassword; }
             set
             {
-                password = value; 
+                userPassword = value;
                 OnPropertyChanged("Password");
             }
         }
@@ -69,7 +68,7 @@ namespace RpS2._0
             get { return recoveryCode; }
             set
             {
-                recoveryCode = value; 
+                recoveryCode = value;
                 OnPropertyChanged("RecoveryCode");
             }
         }
@@ -79,7 +78,9 @@ namespace RpS2._0
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged != null)
+            {
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            }
         }
     }
 }
